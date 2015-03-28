@@ -32,7 +32,7 @@ export default Ember.Component.extend({
   }.property('gameWinner'),
 
   isTied: function() {
-    return (this.get('buttonStates').filterBy('value', '-').length === 0);
+    return (this.get('buttonStates').filterBy('value', '-').length === 0) && !this.get('hasWinner');
   }.property('gameWinner'),
 
   checkWinner: function(player) {
