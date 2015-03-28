@@ -1,21 +1,29 @@
 <div class="box">
   <table>
     <tr>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='0' buttonState=button0State}}</td>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='1' buttonState=button1State}}</td>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='2' buttonState=button2State}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='0' buttonState=buttonStates.0.value}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='1' buttonState=buttonStates.1.value}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='2' buttonState=buttonStates.2.value}}</td>
     </tr>
 
     <tr>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='3' buttonState=button3State}}</td>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='4' buttonState=button4State}}</td>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='5' buttonState=button5State}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='3' buttonState=buttonStates.3.value}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='4' buttonState=buttonStates.4.value}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='5' buttonState=buttonStates.5.value}}</td>
     </tr>
 
     <tr>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='6' buttonState=button6State}}</td>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='7' buttonState=button7State}}</td>
-      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='8' buttonState=button8State}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='6' buttonState=buttonStates.6.value}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='7' buttonState=buttonStates.7.value}}</td>
+      <td>{{tac-button action="buttonClicked" currentTurn=currentTurn squareId='8' buttonState=buttonStates.8.value}}</td>
     </tr>
   </table>
+
+  <button {{action "clearClicked"}} class="clear-button">
+    Clear Board
+  </button>
 </div>
+
+{{#if gameIsFinished}}
+  <b>{{gameWinner}}</b> has Won!
+{{/if}}
