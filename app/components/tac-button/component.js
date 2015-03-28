@@ -9,13 +9,11 @@ export default Ember.Component.extend({
   actions: {
     buttonClicked: function() {
       var turnUsed=false;
+
       if (this.get('buttonState') === "-" &&
           this.get('gameIsFinished') === false) {
         turnUsed=true;
-        if (this.get('currentTurn') === 0)
-          this.set("buttonState", "X");
-        else
-          this.set("buttonState", "O");
+        this.set('buttonState', this.get('currentTurn') === 0 ? "X" : "O");
       }
       this.sendAction('action', turnUsed);
     }
