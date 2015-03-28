@@ -48,9 +48,9 @@ export default Ember.Component.extend({
 
   gameWinner: function() {
     if (this.checkWinner("X"))
-      return "X"
+      return "X";
     else if (this.checkWinner("O"))
-      return "O"
+      return "O";
     else
       return null;
   }.property('buttonStates.@each.value'),
