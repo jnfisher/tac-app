@@ -5,7 +5,8 @@ import {
 
 moduleForComponent('tac-board', {
   // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  //, 'helper:bar']
+  needs: ['component:tac-button']
 });
 
 test('it renders', function(assert) {
