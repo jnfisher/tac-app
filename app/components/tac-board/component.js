@@ -24,7 +24,15 @@ export default Ember.Component.extend({
   },
 
   gameIsFinished: function() {
+    return (this.get('hasWinner') || this.get('isTied'));
+  }.property('hasWinner', 'isTied'),
+
+  hasWinner: function() {
     return (this.get('gameWinner') != null);
+  }.property('gameWinner'),
+
+  isTied: function() {
+    return (this.get('buttonStates').filterBy('value', '-').length === 0);
   }.property('gameWinner'),
 
   checkWinner: function(player) {
@@ -39,8 +47,6 @@ export default Ember.Component.extend({
   },
 
   gameWinner: function() {
-    console.log('checking winner...');
-
     if (this.checkWinner("X"))
       return "X"
     else if (this.checkWinner("O"))
