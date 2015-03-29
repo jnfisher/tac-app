@@ -1,22 +1,20 @@
 import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+  describeModule,
+  it
+} from 'ember-mocha';
 
-moduleForComponent('tac-board', {
-  // specify the other units that are required for this test
-  //, 'helper:bar']
-  needs: ['component:tac-button']
-});
+describeModule(
+  'component:tac-board',
+  'TacBoardComponent',
+  {
+    // Specify the other units that are required for this test.
+    needs: ['component:tac-button']
+  },
+  function() {
+    it('exists', function() {
+      var component = this.subject();
+      expect(component).to.be.ok;
+    });
+  }
+);
 
-test('it renders', function(assert) {
-  assert.expect(2);
-
-  // creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
-
-  // renders the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM');
-});
